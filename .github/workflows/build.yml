@@ -1,4 +1,4 @@
-name: Build BonCT Mod
+name: Build Ongjama Mod
 
 on:
   push:
@@ -11,22 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up JDK 21
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: gradle build
 
     - name: Upload Mod Jar
       uses: actions/upload-artifact@v4
       with:
-        name: bonct-mod-1.21.1
+        name: ongjama-mod-1.21.1
         path: build/libs/*.jar
