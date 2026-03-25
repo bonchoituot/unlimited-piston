@@ -26,7 +26,7 @@ jobs:
       run: ./gradlew build
 
     - name: Upload Mod Jar
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: bonct-mod-1.21.1
         path: build/libs/*.jar
